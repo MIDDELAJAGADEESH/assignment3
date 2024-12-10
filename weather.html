@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="jagadeesh">
     <meta name="description" content="Weather Forecast Application Development in JavaScript">
     <title>Weather Forecast Application Development in JavaScript</title>
-    <link rel="stylesheet" href="js.css">
+    <link rel="stylesheet" href="weatherout.css">
 </head>
-<body>
+
+<body class="bg-green-200">
+    <h1
+        class="underline text-center text-2xl shadow-white shadow-all-sides font-serif text-red-500 mx-auto text-5px mt-2">
+        Weather Forecast Application Development in JavaScript</h1>
+    <div class="grid grid-cols-2 m-4 w-full gap-4">
+
+        <div class="flex-row shadow-all-sides h-screen w-full m-1 p-3 relative ">
+            <div class="shadow-all-sides p-2">
+                <p class="font-serif m-1 ml-5 relative text-lg">Enter the location:</p>
+                <input type="text" class="ml-5">
+                <button
+                    class="search h-8 w-8 m-1 relative top-[9px] left-1 hover:bg-red-500 rounded-full hover:scale-110 transition-transform duration-300">
+                    <img src="search.png" alt="search image" class=""></button>
+                <button
+                    class="userlocation h-8 w-8 m-1 relative top-[8px] hover:bg-red-500 rounded-full hover:scale-110 transition-transform duration-300"><img
+                        src="location.png" alt="location"></button>
+
+            </div>
+            <div
+                class="block1 shadow-all-sides w-full box-border m-3 p-1 relative text-lg font-semibold right-2.5 hidden">
+
+                <div class="flex items-center justify-center flex-col m-2">
+                    <span class="weatherdis w-max relative font-serif"></span>
+                    <div class="icon h-24 w-24 bg-no-repeat m-1 bg-cover bg-center">
+                       
+
+                    </div>
+                    <span class="date  w-max relative font-serif"></span>
+
+                </div>
+                <div class="grid grid-cols-2 gap-4 m-1 w-full h-full box-border relative p-2 right-3.5">
+                    <div class="flex flex-col items-center justify-center w-full h-full shadow-all-sides m-2 p-2 "><img
+                            src="location.png" class="h-8 w-8 relative top-2 m-2" alt=""><span class="location"> </span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center w-full h-full shadow-all-sides m-2 p-2 "><img
+                            src="temperatures.png" class="h-8 w-8" alt="">Temperature:<span class="temp"></span></div>
+                    <div class="flex flex-col items-center justify-center w-full h-full shadow-all-sides m-2 p-2"><img
+                            src="storm.png" class="h-8 w-8 relative top-2 m-2" alt="">wind:<span class="wind"></spam>
+                    </div>
+                    <div class="flex flex-col items-center justify-center w-full h-full shadow-all-sides m-2 p-2"><img
+                            src="humidity.png" class="h-8 w-8 relative top-2 m-2" alt=""> humidity:<span
+                            class="humidity"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shadow-all-sides h-screen w-full m-1">
+
+            <h1>hello</h1>
+        </div>
+    </div>
+
 
 
 
@@ -17,4 +70,5 @@
 
     <script src="weather.js"></script>
 </body>
+
 </html>
