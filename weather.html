@@ -13,10 +13,12 @@
 <body class="bg-green-200">
     <h1
         class="underline text-center text-2xl shadow-white shadow-all-sides font-serif text-red-500 mx-auto text-5px mt-2">
-        Weather Forecast Application Development in JavaScript</h1>
-    <div class="grid grid-cols-2 m-4 w-full gap-4">
+        Weather Forecast Application Development in JavaScript
+    </h1>
 
-        <div class="flex-row shadow-all-sides h-screen w-full m-1 p-3 relative ">
+    <div class="grid grid-row-p-2 m-2 w-screen gap-2">
+
+        <div class="h-full w-full">
             <div class="shadow-all-sides p-2">
                 <p class="font-serif m-1 ml-5 relative text-lg">Enter the location:</p>
                 <input type="text" class="ml-5">
@@ -29,7 +31,7 @@
 
             </div>
             <div
-                class="block1 shadow-all-sides w-full box-border m-3 p-1 relative text-lg font-semibold right-2.5 hidden">
+                class="block1 shadow-all-sides w-max box-border m-3 p-1 relative text-lg font-semibold right-2.5 hidden">
 
                 <div class="flex items-center justify-center flex-col m-2">
                     <span class="weatherdis w-max relative font-serif"></span>
@@ -40,7 +42,7 @@
                     <span class="date  w-max relative font-serif"></span>
 
                 </div>
-                <div class="grid grid-cols-2 gap-4 m-1 w-full h-full box-border relative p-2 right-3.5">
+                <div class="grid grid-cols-2 gap-4 m-1 w-full h-full box-border relative p-2 right-3.5 ">
                     <div class="flex flex-col items-center justify-center w-full h-full shadow-all-sides m-2 p-2 "><img
                             src="location.png" class="h-8 w-8 relative top-2 m-2" alt=""><span class="location"> </span>
                     </div>
@@ -56,9 +58,18 @@
             </div>
         </div>
 
-        <div class="shadow-all-sides h-screen w-full m-1">
+        <div class="forecast shadow-all-sides h-fit w-full p-2 hidden">
+            <div>
+                <h2 class="font-serif font-bold">6days forecast</h2>
+            </div>
+            <div class="forecastcard shadow-all-sides box-border m-3 p-1 relative text-lg font-semibold flex flex-wrap w-fit h-max right-3">
 
-            <h1>hello</h1>
+
+
+            </div>
+            
+           
+            
         </div>
     </div>
 
