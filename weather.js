@@ -22,7 +22,7 @@ async function weatherdata(location) {
 }
 async function forecast(forecastlocation){
     try{
-        const res=await fetch(forecasturl+forecastlocation+`&appid=${mykey}&units=metric`);
+        const res=await fetch(`${forecasturl}${forecastlocation}&appid=${mykey}&units=metric`);
         const resresult=await res.json();
         console.log(resresult);
         if(!res.ok){
@@ -52,11 +52,12 @@ async function usergeo(lat,lon){
 async function usergeoforecast(lat,lon){
     try{
         const geoforecastres=await fetch(geoforecasturl+`${lat}&lon=${lon}&appid=${mykey}&units=metric`);
-    const geoforecastresult=await geoforecastres.json();
-    console.log(geoforecastresult);
-    if(!geoforecastres.ok){
-        throw new Error();
-    }
+        const geoforecastresult=await geoforecastres.json();
+        console.log(geoforecastresult);
+        if(!geoforecastres.ok){
+            throw new Error();
+        }
+        return geoforecastresult;
     }
     catch(error){
         console.log(error.message);
@@ -70,8 +71,10 @@ let input=document.querySelector("input")
 search.addEventListener('click',async function(){
     let data=input.value;
     const result =await weatherdata(data);
-    forecast(data);
+
+    const forecast1=await forecast(data);
     weatherui(result);
+    weatherforecastui(forecast1);
 
 });
 userlocation.addEventListener('click',function(){
@@ -79,10 +82,13 @@ userlocation.addEventListener('click',function(){
         const lon=position.coords.longitude;
         const lat=position.coords.latitude;
         const geore=await usergeo(lat, lon);
-        usergeoforecast(lat,lon);
+        const geoforecast=await usergeoforecast(lat,lon);
         weatherui(geore);
+        weatherforecastui(geoforecast);
+        console.log(geoforecast);
     })
 });
+
 
 function weatherui(result){
     document.querySelector(".icon").style.background = `url(https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png)`;
@@ -94,4 +100,42 @@ function weatherui(result){
     document.querySelector(".wind").innerHTML=result.wind.speed+` km/h`;
     document.querySelector(".humidity").innerHTML=result.main.humidity+`%`;
 }
+function weatherforecastui(forecastresult) {
+    const dailyre = forecastresult.list.filter(data => data.dt_txt.includes('12:00:00')).slice(0, 6);
+    const forecastContainer = document.querySelector(".forecastcard");
+    forecastContainer.innerHTML = '';
+
+    for (let i = 0; i < 5; i++) {
+        forecastContainer.innerHTML+= `
+            <div class="shadow-all-sides w-max box-border m-3 p-2 relative text-lg font-semibold h-max">
+                <div class="flex items-center justify-center flex-col m-2 h-28 w-28">
+                    <span class="foreweatherdis w-max relative font-serif p-2 m-2 left-2"></span>
+                    <div class="foreicon h-24 w-24 bg-no-repeat m-1 bg-cover bg-center"></div>
+                    <span class="date w-max relative font-serif"></span>
+                </div>
+                <div class="forecast">
+                    <div>Date: <span class="foredate"></span></div>
+                    <div>Location: <span class="forelocation"></span></div>
+                    <div>Temperature: <span class="foretemp"></span></div>
+                    <div>Wind: <span class="forewind"></span></div>
+                    <div>Humidity: <span class="forehumidity"></span></div>
+                </div>
+            </div>
+        `;
+    }
+
+    dailyre.forEach((dailyres, index) => {
+        const forecastCard = forecastContainer.children[index];
+        document.querySelector(".forecast").classList.remove('hidden')
+        forecastCard.querySelector('.foreweatherdis').textContent = dailyres.weather[0].description;
+        forecastCard.querySelector('.foreicon').style.backgroundImage = `url(https://openweathermap.org/img/wn/${dailyres.weather[0].icon}@2x.png)`;
+        forecastCard.querySelector('.date').textContent = dailyres.dt_txt.split(' ')[0];
+        forecastCard.querySelector('.foredate').textContent = dailyres.dt_txt.split(' ')[0];
+        forecastCard.querySelector('.forelocation').textContent = forecastresult.city.name;
+        forecastCard.querySelector('.foretemp').textContent = `${dailyres.main.temp} °C`;
+        forecastCard.querySelector('.forewind').textContent = `${dailyres.wind.speed} km/h`;
+        forecastCard.querySelector('.forehumidity').textContent = `${dailyres.main.humidity}%`;
+    });
+}
+
 
