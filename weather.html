@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="weatherout.css">
 </head>
 
-<body class="bg-green-200">
+<body class="bg-[url('background.jpeg')]">
     <h1
-        class="underline text-center text-2xl shadow-white shadow-all-sides font-serif text-red-500 mx-auto text-5px mt-2">
+        class="underline text-center text-2xl shadow-white shadow-all-sides font-serif text-green-500 mx-auto text-5px mt-2">
         Weather Forecast Application Development in JavaScript
     </h1>
 
@@ -21,6 +21,9 @@
         <div class="h-full w-full">
             <div class="shadow-all-sides p-2">
                 <p class="font-serif m-1 ml-5 relative text-lg">Enter the location:</p>
+                <select class="city-dropdown ml-5 p-1 rounded border border-gray-400">
+                    <option value="">Select a city</option> 
+                </select>
                 <input type="text" class="ml-5">
                 <button
                     class="search h-8 w-8 m-1 relative top-[9px] left-1 hover:bg-red-500 rounded-full hover:scale-110 transition-transform duration-300">
