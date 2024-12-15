@@ -1,0 +1,8 @@
+    document.querySelector(".foreicon").style.background = `url(https://openweathermap.org/img/wn/${dailyres.weather[0].icon}@2x.png)`;
+        document.querySelector(".foreweatherdis").innerHTML=dailyres.weather[0].description;
+        document.querySelector(".block2").classList.remove('hidden')
+        document.querySelector(".forelocation").innerHTML=forecastresult.city.name;
+        document.querySelector(".foredate").innerHTML=currentdate;
+        document.querySelector(".foretemp").innerHTML=dailyres.main.temp+` °C`;
+        document.querySelector(".forewind").innerHTML=dailyres.wind.speed+` km/h`;
+        document.querySelector(".forehumidity").innerHTML=dailyres.main.humidity+`%`;

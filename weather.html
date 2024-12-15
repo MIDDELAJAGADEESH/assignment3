@@ -16,20 +16,20 @@
         Weather Forecast Application Development in JavaScript
     </h1>
 
-    <div class="main grid grid-cols-2 p-2 m-2 w-screen gap-2 md:max-xl:flex md:max-xl:flex-col md:max-md:flex md:max-md:flex-col">
+    <div class="main grid grid-cols-2 p-2 m-2 w-screen gap-2 md:max-xl:flex md:max-xl:flex-col   md:max-md:flex md:max-md:flex-col md:max-md: relative right-2">
 
         <div class="h-full w-full">
-            <div class="shadow-all-sides p-2">
+            <div class="shadow-all-sides p-2 max-[376px]:flex flex-col relative justify-center items-center ">
                 <p class="font-serif m-1 ml-5 relative text-lg">Enter the location:</p>
-                <select class="city-dropdown ml-5 p-1 rounded border border-gray-400">
-                    <option value="">Select a city</option> 
+                <select class="city-dropdown m-2 p-1 rounded border border-gray-400 font-serif text-xs w-max relative  focus:scale-110 transition-transform duration-300 ">
+                    <option value="">Select city</option> 
                 </select>
-                <input type="text" class="ml-5">
+                <input type="text" class=" input ml-2 relative right-1 focus:scale-110 transition-transform duration-300" >
                 <button
-                    class="search h-8 w-8 m-1 relative top-[9px] left-1 hover:bg-red-500 rounded-full hover:scale-110 transition-transform duration-300">
+                    class="search h-8 w-8 m-1 relative top-[9px]  hover:bg-green-500 rounded-full hover:scale-110 transition-transform duration-300">
                     <img src="search.png" alt="search image" class=""></button>
                 <button
-                    class="userlocation h-8 w-8 m-1 relative top-[8px] hover:bg-red-500 rounded-full hover:scale-110 transition-transform duration-300"><img
+                    class="userlocation h-8 w-8 m-1 relative top-[8px] hover:bg-green-500 rounded-full hover:scale-110 transition-transform duration-300"><img
                         src="location.png" alt="location"></button>
 
             </div>
